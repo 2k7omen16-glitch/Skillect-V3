@@ -44,7 +44,7 @@ export default function StudentLayout({ children }: StudentLayoutProps) {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#020617] text-[#0A1628] dark:text-slate-100 flex overflow-x-hidden transition-colors duration-300">
+    <div className="min-h-screen bg-white text-[#0A1628] flex overflow-x-hidden">
       {/* Sidebar Wrapper - Keep Dark Navy */}
       <div 
         onMouseEnter={() => setSidebarHover(true)}
@@ -59,12 +59,12 @@ export default function StudentLayout({ children }: StudentLayoutProps) {
         style={{ marginLeft: typeof window !== 'undefined' && window.innerWidth >= 1024 ? (sidebarHover ? '240px' : '72px') : '0px' }}
       >
         {/* Universal Top Bar - Pure White */}
-        <div className="bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-[#E2E8F0] dark:border-slate-900 px-4 lg:px-8 py-5 flex items-center justify-between sticky top-0 z-40 transition-colors duration-300">
+        <div className="bg-white/90 backdrop-blur-md border-b border-[#E2E8F0] px-4 lg:px-8 py-5 flex items-center justify-between sticky top-0 z-40">
           <div>
-            <h1 className="text-xl font-bold text-[#0A1628] dark:text-slate-100 flex items-center gap-2 truncate font-display cursor-pointer hover:text-[#E8132A] transition-colors" onClick={() => navigate('/student/dashboard')}>
+            <h1 className="text-xl font-bold text-[#0A1628] flex items-center gap-2 truncate font-display cursor-pointer hover:text-[#E8132A] transition-colors" onClick={() => navigate('/student/dashboard')}>
               Welcome back, {studentFirstName} <span className="animate-bounce-slow">👋</span>
             </h1>
-            <p className="text-[10px] text-[#4A5568] dark:text-slate-500 font-bold uppercase tracking-[0.15em] mt-1">
+            <p className="text-[10px] text-[#4A5568] font-bold uppercase tracking-[0.15em] mt-1">
               {userData?.branch || 'CSE'} • {userData?.year || '3rd Year'} • NIET Greater Noida
             </p>
           </div>
@@ -76,13 +76,13 @@ export default function StudentLayout({ children }: StudentLayoutProps) {
                 placeholder="Search knowledge..." 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-64 bg-[#F5F6FA] dark:bg-slate-900 border border-[#E2E8F0] dark:border-slate-800 rounded-2xl pl-11 pr-4 py-3 text-xs font-medium focus:outline-none focus:border-[#E8132A] transition-all shadow-inner text-[#0A1628] dark:text-slate-100 placeholder-[#8B9BB4]" 
+                className="w-64 bg-[#F5F6FA] border border-[#E2E8F0] rounded-2xl pl-11 pr-4 py-3 text-xs font-medium focus:outline-none focus:border-[#E8132A] transition-all shadow-inner text-[#0A1628] placeholder-[#8B9BB4]" 
               />
             </form>
             <div className="flex items-center gap-3 relative">
               <button 
                 onClick={() => setShowNotifications(!showNotifications)}
-                className={`relative w-11 h-11 border border-[#E2E8F0] dark:border-slate-800 rounded-2xl flex items-center justify-center transition-all ${showNotifications ? 'bg-[#FEF0F1] dark:bg-red-500/10 text-[#E8132A] border-[#FCCDD0] dark:border-red-500/20' : 'bg-white dark:bg-slate-900 text-[#4A5568] dark:text-slate-400 hover:text-[#E8132A] hover:bg-[#FEF0F1] dark:hover:bg-red-500/10'}`}
+                className={`relative w-11 h-11 border border-[#E2E8F0] rounded-2xl flex items-center justify-center transition-all ${showNotifications ? 'bg-[#FEF0F1] text-[#E8132A] border-[#FCCDD0]' : 'bg-white text-[#4A5568] hover:text-[#E8132A] hover:bg-[#FEF0F1]'}`}
               >
                 <Bell size={20} />
                 {notifications.length > 0 && (
@@ -100,7 +100,7 @@ export default function StudentLayout({ children }: StudentLayoutProps) {
                       initial={{ opacity: 0, y: 10, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      className="absolute top-14 right-0 w-80 bg-white dark:bg-slate-900 border border-[#E2E8F0] dark:border-slate-800 rounded-[2rem] shadow-2xl z-20 overflow-hidden"
+                      className="absolute top-14 right-0 w-80 bg-white border border-[#E2E8F0] rounded-[2rem] shadow-2xl z-20 overflow-hidden"
                     >
                       <div className="p-5 border-b border-[#F5F6FA] flex items-center justify-between">
                         <h3 className="text-xs font-black text-[#0A1628] uppercase tracking-widest">Notifications</h3>
@@ -170,7 +170,7 @@ export default function StudentLayout({ children }: StudentLayoutProps) {
         </div>
 
         {/* Page Content */}
-        <div className="p-4 lg:p-8 bg-white dark:bg-[#020617] min-h-[calc(100vh-80px)] transition-colors duration-300">
+        <div className="p-4 lg:p-8 bg-white min-h-[calc(100vh-80px)]">
           {children}
         </div>
       </main>

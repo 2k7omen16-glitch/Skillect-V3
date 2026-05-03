@@ -3,14 +3,14 @@ import { GraduationCap, FlaskConical, Briefcase, Brain } from 'lucide-react'
 
 export default function FeatureSection() {
   return (
-    <section className="bg-gray-50 dark:bg-slate-950 py-28 relative transition-colors duration-300">
+    <section className="bg-gray-50 py-28 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <div className="text-[#E31E24] text-[10px] font-black uppercase tracking-[0.4em] mb-6">Core Ecosystem</div>
-          <h2 className="text-4xl lg:text-6xl font-display font-black text-[#1e293b] dark:text-slate-50 leading-tight mb-8">
+          <h2 className="text-4xl lg:text-6xl font-display font-black text-[#1e293b] leading-tight mb-8">
             Empowering the next generation of <span className="text-[#E31E24]">Innovators</span>
           </h2>
-          <p className="text-gray-500 dark:text-slate-400 text-lg font-medium leading-relaxed">
+          <p className="text-gray-500 text-lg font-medium leading-relaxed">
             Skillect bridges the gap between campus learning and industry expectations through high-performance intelligence.
           </p>
         </div>
@@ -53,13 +53,13 @@ function FeatureCard({ icon, title, description, delay }: { icon: React.ReactNod
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay }}
-      className="bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 rounded-[3rem] p-10 hover:shadow-[0_40px_80px_-15px_rgba(227,30,36,0.12)] hover:border-[#E31E24]/20 transition-all group cursor-default shadow-sm"
+      className="bg-white border border-gray-100 rounded-[3rem] p-10 hover:shadow-[0_40px_80px_-15px_rgba(227,30,36,0.12)] hover:border-[#E31E24]/20 transition-all group cursor-default shadow-sm"
     >
-      <div className="w-16 h-16 bg-red-50 dark:bg-slate-800 rounded-[1.5rem] flex items-center justify-center text-[#E31E24] mb-8 group-hover:scale-110 group-hover:bg-[#E31E24] group-hover:text-white transition-all shadow-sm">
+      <div className="w-16 h-16 bg-red-50 rounded-[1.5rem] flex items-center justify-center text-[#E31E24] mb-8 group-hover:scale-110 group-hover:bg-[#E31E24] group-hover:text-white transition-all shadow-sm">
         {icon}
       </div>
-      <h3 className="text-[#1e293b] dark:text-slate-100 font-display font-black text-2xl mb-4 tracking-tight group-hover:text-[#E31E24] transition-colors">{title}</h3>
-      <p className="text-gray-400 dark:text-slate-500 text-sm font-medium leading-relaxed">{description}</p>
+      <h3 className="text-[#1e293b] font-display font-black text-2xl mb-4 tracking-tight group-hover:text-[#E31E24] transition-colors">{title}</h3>
+      <p className="text-gray-400 text-sm font-medium leading-relaxed">{description}</p>
     </motion.div>
   )
 }

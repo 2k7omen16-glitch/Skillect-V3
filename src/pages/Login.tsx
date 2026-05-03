@@ -91,7 +91,7 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-[#020617] flex items-center justify-center p-6 relative overflow-hidden transition-colors duration-300">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6 relative overflow-hidden">
       {/* ... previous content ... */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-100/30 rounded-full -mr-64 -mt-64 blur-3xl -z-10" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-100/20 rounded-full -ml-32 -mb-32 blur-3xl -z-10" />
@@ -106,15 +106,15 @@ export default function Login() {
           onClick={() => navigate('/')}
           className="mb-8 text-gray-400 hover:text-[#E31E24] flex items-center gap-3 text-xs font-black uppercase tracking-widest transition-colors group"
         >
-          <div className="w-8 h-8 rounded-xl bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 flex items-center justify-center shadow-sm group-hover:bg-red-50 dark:group-hover:bg-red-500/10 group-hover:border-red-100 transition-all">
+          <div className="w-8 h-8 rounded-xl bg-white border border-gray-100 flex items-center justify-center shadow-sm group-hover:bg-red-50 group-hover:border-red-100 transition-all">
             <ArrowLeft size={16} />
           </div>
           Back to Home
         </button>
 
-        <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-2xl shadow-gray-200/50 dark:shadow-black/50 overflow-hidden border border-gray-100 dark:border-slate-800">
+        <div className="bg-white rounded-[2.5rem] shadow-2xl shadow-gray-200/50 overflow-hidden border border-gray-100">
           {/* Header */}
-          <div className="bg-[#1e293b] dark:bg-slate-950 p-10 text-center text-white relative">
+          <div className="bg-[#1e293b] p-10 text-center text-white relative">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#E31E24] to-[#ff6b6b]" />
             <div className="flex justify-center mb-6">
               <Logo size="large" centered className="invert-branding" />
@@ -126,7 +126,7 @@ export default function Login() {
             <h1 className="text-2xl font-black tracking-tight leading-tight">
               {isSignup ? 'Create Account' : 'Welcome Back'}
             </h1>
-            <p className="text-gray-400 dark:text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em] mt-2 flex items-center justify-center gap-2">
+            <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em] mt-2 flex items-center justify-center gap-2">
               <Sparkles size={12} className="text-[#E31E24]" /> {isSignup ? 'Join Skillect Hub' : 'Secure Login Portal'}
             </p>
           </div>
@@ -139,13 +139,13 @@ export default function Login() {
             )}
 
             {/* Role Toggle */}
-            <div className="grid grid-cols-2 gap-2 bg-gray-50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-800 rounded-3xl p-1.5 mb-8">
+            <div className="grid grid-cols-2 gap-2 bg-gray-50 border border-gray-100 rounded-3xl p-1.5 mb-8">
               <button
                 onClick={() => setRole('student')}
                 className={`flex items-center justify-center gap-2 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${
                   role === 'student'
-                    ? 'bg-white dark:bg-slate-700 text-[#E31E24] shadow-md'
-                    : 'text-gray-400 dark:text-slate-500 hover:text-gray-600 dark:hover:text-slate-300'
+                    ? 'bg-white text-[#E31E24] shadow-md'
+                    : 'text-gray-400 hover:text-gray-600'
                 }`}
               >
                 <GraduationCap size={14} /> Student
@@ -154,8 +154,8 @@ export default function Login() {
                 onClick={() => setRole('professor')}
                 className={`flex items-center justify-center gap-2 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${
                   role === 'professor'
-                    ? 'bg-white dark:bg-slate-700 text-[#E31E24] shadow-md'
-                    : 'text-gray-400 dark:text-slate-500 hover:text-gray-600 dark:hover:text-slate-300'
+                    ? 'bg-white text-[#E31E24] shadow-md'
+                    : 'text-gray-400 hover:text-gray-600'
                 }`}
               >
                 <Users size={14} /> Faculty
@@ -164,8 +164,8 @@ export default function Login() {
                 onClick={() => setRole('admin')}
                 className={`flex items-center justify-center gap-2 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${
                   role === 'admin'
-                    ? 'bg-white dark:bg-slate-700 text-purple-600 shadow-md'
-                    : 'text-gray-400 dark:text-slate-500 hover:text-gray-600 dark:hover:text-slate-300'
+                    ? 'bg-white text-purple-600 shadow-md'
+                    : 'text-gray-400 hover:text-gray-600'
                 }`}
               >
                 <ShieldCheck size={14} /> Admin
@@ -174,8 +174,8 @@ export default function Login() {
                 onClick={() => setRole('alumni')}
                 className={`flex items-center justify-center gap-2 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${
                   role === 'alumni'
-                    ? 'bg-white dark:bg-slate-700 text-amber-500 shadow-md'
-                    : 'text-gray-400 dark:text-slate-500 hover:text-gray-600 dark:hover:text-slate-300'
+                    ? 'bg-white text-amber-500 shadow-md'
+                    : 'text-gray-400 hover:text-gray-600'
                 }`}
               >
                 <Sparkles size={14} /> Alumni
@@ -190,31 +190,31 @@ export default function Login() {
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full border border-gray-100 dark:border-slate-800 bg-gray-50 dark:bg-slate-800/50 rounded-2xl px-5 py-4 text-sm font-medium focus:outline-none focus:border-[#E31E24] focus:ring-4 focus:ring-red-50 dark:focus:ring-red-500/10 transition-all text-slate-900 dark:text-slate-100 placeholder:text-gray-300 dark:placeholder:text-slate-600"
+                    className="w-full border border-gray-100 bg-gray-50 rounded-2xl px-5 py-4 text-sm font-medium focus:outline-none focus:border-[#E31E24] focus:ring-4 focus:ring-red-50 transition-all"
                     placeholder="Enter full name"
                     required
                   />
                 </div>
               )}
               <div>
-                <label className="block text-[10px] font-black text-gray-400 dark:text-slate-500 uppercase tracking-widest mb-2 ml-1">NIET Email</label>
+                <label className="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2 ml-1">NIET Email</label>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full border border-gray-100 dark:border-slate-800 bg-gray-50 dark:bg-slate-800/50 rounded-2xl px-5 py-4 text-sm font-medium focus:outline-none focus:border-[#E31E24] focus:ring-4 focus:ring-red-50 dark:focus:ring-red-500/10 transition-all text-slate-900 dark:text-slate-100 placeholder:text-gray-300 dark:placeholder:text-slate-600"
+                  className="w-full border border-gray-100 bg-gray-50 rounded-2xl px-5 py-4 text-sm font-medium focus:outline-none focus:border-[#E31E24] focus:ring-4 focus:ring-red-50 transition-all"
                   placeholder="name@niet.co.in"
                   required
                 />
               </div>
               <div>
-                <label className="block text-[10px] font-black text-gray-400 dark:text-slate-500 uppercase tracking-widest mb-2 ml-1">Security Code</label>
+                <label className="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2 ml-1">Security Code</label>
                 <div className="relative">
                   <input
                     type={showPass ? 'text' : 'password'}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full border border-gray-100 dark:border-slate-800 bg-gray-50 dark:bg-slate-800/50 rounded-2xl px-5 py-4 text-sm font-medium focus:outline-none focus:border-[#E31E24] focus:ring-4 focus:ring-red-50 dark:focus:ring-red-500/10 transition-all pr-12 text-slate-900 dark:text-slate-100 placeholder:text-gray-300 dark:placeholder:text-slate-600"
+                    className="w-full border border-gray-100 bg-gray-50 rounded-2xl px-5 py-4 text-sm font-medium focus:outline-none focus:border-[#E31E24] focus:ring-4 focus:ring-red-50 transition-all pr-12"
                     placeholder="Enter password"
                     required
                   />
@@ -255,25 +255,25 @@ export default function Login() {
               <div className="grid grid-cols-2 gap-4">
                 <button
                   onClick={() => handleDemoLogin('student')}
-                  className="bg-gray-50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 border border-transparent hover:border-gray-100 dark:hover:border-slate-700 text-[#1e293b] dark:text-slate-100 py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-sm flex items-center justify-center gap-2 active:scale-95"
+                  className="bg-gray-50 hover:bg-white border border-transparent hover:border-gray-100 text-[#1e293b] py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-sm flex items-center justify-center gap-2 active:scale-95"
                 >
                   <GraduationCap size={14} className="text-[#E31E24]" /> Student
                 </button>
                 <button
                   onClick={() => handleDemoLogin('professor')}
-                  className="bg-gray-50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 border border-transparent hover:border-gray-100 dark:hover:border-slate-700 text-[#1e293b] dark:text-slate-100 py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-sm flex items-center justify-center gap-2 active:scale-95"
+                  className="bg-gray-50 hover:bg-white border border-transparent hover:border-gray-100 text-[#1e293b] py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-sm flex items-center justify-center gap-2 active:scale-95"
                 >
                   <ShieldCheck size={14} className="text-blue-500" /> Faculty
                 </button>
                 <button
                   onClick={() => handleDemoLogin('admin')}
-                  className="bg-gray-50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 border border-transparent hover:border-gray-100 dark:hover:border-slate-700 text-[#1e293b] dark:text-slate-100 py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-sm flex items-center justify-center gap-2 active:scale-95"
+                  className="bg-gray-50 hover:bg-white border border-transparent hover:border-gray-100 text-[#1e293b] py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-sm flex items-center justify-center gap-2 active:scale-95"
                 >
                   <Users size={14} className="text-purple-500" /> Admin
                 </button>
                 <button
                   onClick={() => handleDemoLogin('alumni')}
-                  className="bg-gray-50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 border border-transparent hover:border-gray-100 dark:hover:border-slate-700 text-[#1e293b] dark:text-slate-100 py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-sm flex items-center justify-center gap-2 active:scale-95"
+                  className="bg-gray-50 hover:bg-white border border-transparent hover:border-gray-100 text-[#1e293b] py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-sm flex items-center justify-center gap-2 active:scale-95"
                 >
                   <Sparkles size={14} className="text-amber-500" /> Alumni
                 </button>

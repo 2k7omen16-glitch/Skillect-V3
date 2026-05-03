@@ -36,10 +36,10 @@ export default function StudentSidebar() {
       <aside
         onMouseEnter={() => setSidebarHover(true)}
         onMouseLeave={() => setSidebarHover(false)}
-        className="hidden lg:flex flex-col bg-white dark:bg-[#0A1628] border-r border-[#E2E8F0] dark:border-slate-800 shadow-xl fixed top-0 left-0 h-full z-50 transition-all duration-300 ease-in-out overflow-hidden"
+        className="hidden lg:flex flex-col bg-white border-r border-[#E2E8F0] shadow-xl fixed top-0 left-0 h-full z-50 transition-all duration-300 ease-in-out overflow-hidden"
         style={{ width: sidebarHover ? '240px' : '72px' }}
       >
-        <div className="p-4 border-b border-[#E2E8F0] dark:border-slate-800 flex items-center justify-center h-16">
+        <div className="p-4 border-b border-[#E2E8F0] flex items-center justify-center h-16">
           <Logo iconOnly={!sidebarHover} size={sidebarHover ? "normal" : "small"} />
         </div>
 
@@ -53,7 +53,7 @@ export default function StudentSidebar() {
                 className={`w-full flex items-center gap-4 px-3 py-2.5 rounded-xl text-[13px] font-bold transition-all duration-200 group ${
                   isActive
                     ? 'bg-[#E8132A] text-white shadow-xl shadow-red-600/20 scale-[1.02]'
-                    : 'text-[#4A5568] dark:text-slate-400 hover:bg-[#F5F6FA] dark:hover:bg-slate-800 hover:text-[#E8132A]'
+                    : 'text-[#4A5568] hover:bg-[#F5F6FA] hover:text-[#E8132A]'
                 }`}
               >
                 <span className={`flex-shrink-0 transition-transform ${isActive ? 'scale-105' : 'group-hover:scale-105'}`}>{item.icon}</span>
@@ -74,10 +74,10 @@ export default function StudentSidebar() {
           })}
         </nav>
 
-        <div className="p-3 border-t border-[#E2E8F0] dark:border-slate-800">
+        <div className="p-3 border-t border-[#E2E8F0]">
           <button
             onClick={handleLogout}
-            className="w-full flex items-center gap-4 px-3 py-2.5 rounded-xl text-[13px] font-bold text-[#4A5568] dark:text-slate-400 hover:bg-red-500/10 hover:text-[#E8132A] transition-all"
+            className="w-full flex items-center gap-4 px-3 py-2.5 rounded-xl text-[13px] font-bold text-[#4A5568] hover:bg-red-500/10 hover:text-[#E8132A] transition-all"
           >
             <LogOut size={18} className="flex-shrink-0" />
             <AnimatePresence>
@@ -92,9 +92,9 @@ export default function StudentSidebar() {
       </aside>
 
       {/* Mobile Top Bar */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 bg-white dark:bg-[#0A1628] border-b border-[#E2E8F0] dark:border-slate-800 z-50 px-4 py-3 flex items-center justify-between">
+      <div className="lg:hidden fixed top-0 left-0 right-0 bg-white border-b border-[#E2E8F0] z-50 px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <button onClick={() => setMobileMenu(!mobileMenu)} className="w-10 h-10 flex items-center justify-center bg-[#F5F6FA] dark:bg-slate-800 rounded-xl text-[#4A5568] dark:text-slate-400">
+          <button onClick={() => setMobileMenu(!mobileMenu)} className="w-10 h-10 flex items-center justify-center bg-[#F5F6FA] rounded-xl text-[#4A5568]">
             <Menu size={20} />
           </button>
           <Logo size="small" />
@@ -106,23 +106,23 @@ export default function StudentSidebar() {
         {mobileMenu && (
           <>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} exit={{ opacity: 0 }} className="lg:hidden fixed inset-0 bg-black z-[100]" onClick={() => setMobileMenu(false)} />
-            <motion.div initial={{ x: -280 }} animate={{ x: 0 }} exit={{ x: -280 }} transition={{ type: 'spring', damping: 25 }} className="lg:hidden fixed left-0 top-0 bottom-0 w-64 bg-white dark:bg-[#0A1628] z-[101] shadow-2xl p-5 border-r border-[#E2E8F0] dark:border-slate-800">
+            <motion.div initial={{ x: -280 }} animate={{ x: 0 }} exit={{ x: -280 }} transition={{ type: 'spring', damping: 25 }} className="lg:hidden fixed left-0 top-0 bottom-0 w-64 bg-white z-[101] shadow-2xl p-5 border-r border-[#E2E8F0]">
               <div className="flex items-center justify-between mb-8">
                 <Logo size="small" />
-                <button onClick={() => setMobileMenu(false)} className="w-8 h-8 flex items-center justify-center bg-[#F5F6FA] dark:bg-slate-800 rounded-lg text-[#4A5568] dark:text-slate-400"><ChevronLeft size={20} /></button>
+                <button onClick={() => setMobileMenu(false)} className="w-8 h-8 flex items-center justify-center bg-[#F5F6FA] rounded-lg text-[#4A5568]"><ChevronLeft size={20} /></button>
               </div>
               <div className="space-y-1.5">
                 {menuItems.map((item) => (
                   <button key={item.path} onClick={() => { navigate(item.path); setMobileMenu(false) }}
                     className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
-                      location.pathname === item.path ? 'bg-[#E8132A] text-white shadow-lg' : 'text-[#4A5568] dark:text-slate-400 hover:bg-[#F5F6FA] dark:hover:bg-slate-800'
+                      location.pathname === item.path ? 'bg-[#E8132A] text-white shadow-lg' : 'text-[#4A5568] hover:bg-[#F5F6FA]'
                     }`}
                   >
                     {item.icon} {item.label}
                   </button>
                 ))}
               </div>
-              <button onClick={handleLogout} className="w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-bold text-[#4A5568] dark:text-slate-400 hover:bg-red-500/10 hover:text-[#E8132A] mt-6 transition-all">
+              <button onClick={handleLogout} className="w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-bold text-[#4A5568] hover:bg-red-500/10 hover:text-[#E8132A] mt-6 transition-all">
                 <LogOut size={18} /> Logout
               </button>
             </motion.div>
