@@ -41,7 +41,7 @@ export default function Hero() {
               onClick={() => navigate('/login')}
               className="bg-white border-2 border-gray-100 hover:border-[#1e293b] text-[#1e293b] px-10 py-6 rounded-[2rem] text-sm font-black uppercase tracking-widest transition-all active:scale-95 shadow-sm hover:shadow-xl"
             >
-              Verify ERP ID
+              Login
             </button>
           </div>
 
