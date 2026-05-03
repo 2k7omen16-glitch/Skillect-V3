@@ -21,6 +21,7 @@ const Profile = lazy(() => import('./pages/Profile'))
 const ProfessorDashboard = lazy(() => import('./pages/ProfessorDashboard'))
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'))
 const AlumniDashboard = lazy(() => import('./pages/AlumniDashboard'))
+const Analytics = lazy(() => import('./pages/Analytics'))
 
 const StudentLayout = lazy(() => import('./components/layout/StudentLayout'))
 
@@ -51,6 +52,7 @@ export default function App() {
             <StudentLayout>
               <Routes>
                 <Route path="dashboard" element={<StudentDashboard />} />
+                <Route path="analytics" element={<Analytics />} />
                 <Route path="opportunities" element={<Opportunities />} />
                 <Route path="assessment" element={<Assessment />} />
                 <Route path="assessment/:id" element={<Assessment />} />

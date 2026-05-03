@@ -46,8 +46,8 @@ export default function SkillRadar({ data }: { data: SkillData[] }) {
     axis.append("line")
       .attr("x1", 0)
       .attr("y1", 0)
-      .attr("x2", (d, i) => radius * Math.cos(angleSlice * i - Math.PI / 2))
-      .attr("y2", (d, i) => radius * Math.sin(angleSlice * i - Math.PI / 2))
+      .attr("x2", (_d, i) => radius * Math.cos(angleSlice * i - Math.PI / 2))
+      .attr("y2", (_d, i) => radius * Math.sin(angleSlice * i - Math.PI / 2))
       .attr("stroke", "#E2E8F0")
       .attr("stroke-width", "1px")
 
@@ -57,15 +57,15 @@ export default function SkillRadar({ data }: { data: SkillData[] }) {
       .style("font-weight", "900")
       .attr("text-anchor", "middle")
       .attr("dy", "0.35em")
-      .attr("x", (d, i) => (radius + 20) * Math.cos(angleSlice * i - Math.PI / 2))
-      .attr("y", (d, i) => (radius + 20) * Math.sin(angleSlice * i - Math.PI / 2))
+      .attr("x", (_d, i) => (radius + 20) * Math.cos(angleSlice * i - Math.PI / 2))
+      .attr("y", (_d, i) => (radius + 20) * Math.sin(angleSlice * i - Math.PI / 2))
       .text(d => d.axis.toUpperCase())
       .attr("fill", "#0A1628")
 
     // Radar Area
     const radarLine = d3.lineRadial<SkillData>()
-      .radius(d => (d.value / maxValue) * radius)
-      .angle((d, i) => i * angleSlice)
+      .radius(_d => (_d.value / maxValue) * radius)
+      .angle((_d, i) => i * angleSlice)
       .curve(d3.curveLinearClosed)
 
     g.append("path")

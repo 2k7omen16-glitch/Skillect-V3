@@ -32,7 +32,6 @@ const trendData = [
   { day: 'Apr 30', score: 58 },
 ]
 
-]
 
 const mentors = [
   {

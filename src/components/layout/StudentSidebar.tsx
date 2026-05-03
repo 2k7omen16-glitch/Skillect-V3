@@ -2,7 +2,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import {
   LayoutDashboard, ClipboardCheck, Map, Users, MessageSquare, FileText,
-  LogOut, ScanSearch, ChevronLeft, Menu, Briefcase
+  LogOut, ScanSearch, ChevronLeft, Menu, Briefcase, TrendingUp
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAuth } from '../../context/AuthContext'
@@ -22,6 +22,7 @@ export default function StudentSidebar() {
 
   const menuItems = [
     { icon: <LayoutDashboard size={18} />, label: 'Overview', path: '/student/dashboard' },
+    { icon: <TrendingUp size={18} />, label: 'Analytics', path: '/student/analytics' },
     { icon: <Briefcase size={18} />, label: 'Opportunities', path: '/student/opportunities' },
     { icon: <ClipboardCheck size={18} />, label: 'Assessment', path: '/student/assessment' },
     { icon: <Map size={18} />, label: 'Roadmap', path: '/student/roadmap' },
