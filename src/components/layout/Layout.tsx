@@ -10,7 +10,7 @@ interface LayoutProps {
 
 export default function Layout({ children, showFooter = true }: LayoutProps) {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 font-sans flex flex-col">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#020617] text-gray-900 dark:text-slate-100 font-sans flex flex-col transition-colors duration-300">
       <Header />
       <motion.main 
         initial={{ opacity: 0, y: 10 }}
