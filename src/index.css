@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 217 60% 10%;
+  }
+
+  body {
+    @apply bg-[#FFFFFF] text-[#0A1628] antialiased selection:bg-[#E8132A]/20 selection:text-[#E8132A];
+    font-family: 'Satoshi', sans-serif;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Clash Display', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  /* NIET Brand Colors */
+  .bg-niet-red { background-color: #E8132A; }
+  .text-niet-red { color: #E8132A; }
+  .bg-niet-navy { background-color: #0A1628; }
+  .text-niet-navy { color: #0A1628; }
+  
+  .bg-section-light { background-color: #F5F6FA; }
+  .bg-red-tint { background-color: #FEF0F1; }
+  .border-niet-red { border-color: #E8132A; }
+  .border-niet-gray { border-color: #E2E8F0; }
+
+  .niet-card {
+    @apply bg-white border border-[#E2E8F0] rounded-2xl p-6 transition-all duration-300;
+  }
+  .niet-card:hover {
+    @apply border-[#CBD5E0] shadow-xl shadow-slate-900/5 -translate-y-0.5;
+  }
+
+  .niet-btn-primary {
+    @apply bg-[#E8132A] text-white px-6 py-2.5 rounded-xl font-bold text-sm transition-all hover:bg-[#C41025] active:scale-95;
+  }
+  
+  .niet-btn-outline {
+    @apply border-2 border-[#E8132A] text-[#E8132A] px-6 py-2.5 rounded-xl font-bold text-sm transition-all hover:bg-[#FEF0F1] active:scale-95;
+  }
+
+  .niet-header-accent {
+    @apply border-l-4 border-[#E8132A] pl-4;
+  }
+
+  /* Animations */
+  .animate-pulse-subtle {
+    animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-subtle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+    50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+  }
+
+  .glass {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)];
+  }
+  .glass-dark {
+    @apply backdrop-blur-xl bg-black/20 border border-white/10 shadow-2xl;
+  }
+  .neon-border {
+    @apply border-transparent bg-clip-padding relative;
+    &::after {
+      content: '';
+      @apply absolute -inset-[1px] bg-gradient-to-r from-[#E31E24] to-[#00C2FF] rounded-[inherit] -z-10 opacity-30 blur-sm;
+    }
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F6FA;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E0;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8B9BB4;
+}
