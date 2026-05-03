@@ -106,12 +106,12 @@ export default function StudentDashboard() {
       {/* ROW 1: TOP STATS & GAP SCORE CHART (RESTORED LAYOUT) */}
       <div className="grid lg:grid-cols-12 gap-8">
         {/* Gap Score Chart Card */}
-        <div className="lg:col-span-8 niet-card p-8 bg-white overflow-hidden relative group">
+        <div className="lg:col-span-8 niet-card p-8 overflow-hidden relative group">
           <div className="flex justify-between items-start mb-8 niet-header-accent">
             <div>
-              <p className="text-[10px] font-black text-[#8B9BB4] uppercase tracking-[0.2em] mb-1">Gap Score Performance</p>
-              <h2 className="text-2xl font-bold text-[#0A1628] font-display">30-Day Intelligence Trend</h2>
-              <p className="text-[11px] text-[#4A5568] font-medium italic mt-1">You've improved 26 points this month. <span className="text-[#00A86B] font-bold">Excellent trajectory!</span></p>
+              <p className="text-[10px] font-black text-[#8B9BB4] dark:text-slate-500 uppercase tracking-[0.2em] mb-1">Gap Score Performance</p>
+              <h2 className="text-2xl font-bold text-[#0A1628] dark:text-slate-100 font-display">30-Day Intelligence Trend</h2>
+              <p className="text-[11px] text-[#4A5568] dark:text-slate-400 font-medium italic mt-1">You've improved 26 points this month. <span className="text-[#00A86B] font-bold">Excellent trajectory!</span></p>
             </div>
             <div className="text-right">
               <div className="text-4xl font-bold font-display text-[#E8132A]">
@@ -130,14 +130,14 @@ export default function StudentDashboard() {
                     <stop offset="100%" stopColor="#E8132A" stopOpacity={0} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#F0F0F0" vertical={false} />
-                <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: '#8B9BB4', fontSize: 10, fontWeight: 700 }} dy={10} />
+                <CartesianGrid strokeDasharray="3 3" stroke="currentColor" className="text-gray-100 dark:text-slate-800" vertical={false} />
+                <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: 'currentColor', fontSize: 10, fontWeight: 700 }} className="text-[#8B9BB4] dark:text-slate-500" dy={10} />
                 <YAxis domain={[0, 100]} hide />
                 <Tooltip 
-                  contentStyle={{ backgroundColor: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}
+                  contentStyle={{ backgroundColor: 'var(--tooltip-bg, #FFFFFF)', border: '1px solid var(--tooltip-border, #E2E8F0)', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}
                   itemStyle={{ color: '#E8132A', fontWeight: 900, fontSize: '12px' }}
                 />
-                <Area type="monotone" dataKey="score" stroke="#E8132A" strokeWidth={3} fill="url(#scoreGradient)" animationDuration={2000} dot={{ r: 4, fill: '#FFFFFF', stroke: '#E8132A', strokeWidth: 2 }} activeDot={{ r: 6, fill: '#E8132A', stroke: '#FFFFFF', strokeWidth: 2 }} />
+                <Area type="monotone" dataKey="score" stroke="#E8132A" strokeWidth={3} fill="url(#scoreGradient)" animationDuration={2000} dot={{ r: 4, fill: 'currentColor', stroke: '#E8132A', strokeWidth: 2 }} className="text-white dark:text-slate-900" activeDot={{ r: 6, fill: '#E8132A', stroke: 'currentColor', strokeWidth: 2 }} />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -148,18 +148,18 @@ export default function StudentDashboard() {
           {/* SKILLS TICKED CARD */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
-            className="bg-[#F8F9FB] rounded-[1.5rem] p-6 relative overflow-hidden group border border-[#E2E8F0]"
+            className="bg-[#F8F9FB] dark:bg-slate-900 rounded-[1.5rem] p-6 relative overflow-hidden group border border-[#E2E8F0] dark:border-slate-800"
           >
-             <div className="absolute top-5 right-5 w-10 h-10 bg-[#0A1628] rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+             <div className="absolute top-5 right-5 w-10 h-10 bg-[#0A1628] dark:bg-slate-800 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
                 <BookOpen size={18} />
              </div>
-             <p className="text-[9px] font-black text-[#8B9BB4] uppercase tracking-widest mb-3">Skills Ticked</p>
+             <p className="text-[9px] font-black text-[#8B9BB4] dark:text-slate-500 uppercase tracking-widest mb-3">Skills Ticked</p>
              <div className="flex items-end gap-1 mb-3">
-                <h2 className="text-3xl font-black text-[#0A1628] font-display">{userData?.skills_mastered || 8}/{userData?.total_skills || 13}</h2>
+                <h2 className="text-3xl font-black text-[#0A1628] dark:text-slate-100 font-display">{userData?.skills_mastered || 8}/{userData?.total_skills || 13}</h2>
              </div>
              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#CBD5E0]" />
-                <span className="text-[9px] font-black text-[#8B9BB4] uppercase tracking-widest">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#CBD5E0] dark:bg-slate-700" />
+                <span className="text-[9px] font-black text-[#8B9BB4] dark:text-slate-500 uppercase tracking-widest">
                   {Math.max(0, (userData?.total_skills || 13) - (userData?.skills_mastered || 8))} Remaining
                 </span>
              </div>
@@ -186,19 +186,19 @@ export default function StudentDashboard() {
           {/* YOUR GOAL CARD */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}
-            className="bg-[#F5F3FF] rounded-[1.5rem] p-6 relative overflow-hidden group border border-[#EDE9FE]"
+            className="bg-[#F5F3FF] dark:bg-slate-900 rounded-[1.5rem] p-6 relative overflow-hidden group border border-[#EDE9FE] dark:border-purple-500/10"
           >
              <div className="absolute top-5 right-5 w-10 h-10 bg-[#7C3AED] rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
                 <Sparkles size={18} />
              </div>
-             <p className="text-[9px] font-black text-[#8B9BB4] uppercase tracking-widest mb-3">Your Goal</p>
+             <p className="text-[9px] font-black text-[#8B9BB4] dark:text-slate-500 uppercase tracking-widest mb-3">Your Goal</p>
              <div className="flex items-end gap-1 mb-3">
                 <h2 className="text-lg font-black text-[#7C3AED] font-display truncate pr-10">
                    {userData?.goal || 'SDE Intern'}
                 </h2>
              </div>
              <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 bg-white/50 text-[#7C3AED] text-[8px] font-black rounded-md uppercase tracking-widest border border-[#7C3AED]/20">Target Role</span>
+                <span className="px-2 py-0.5 bg-white/50 dark:bg-slate-800/50 text-[#7C3AED] text-[8px] font-black rounded-md uppercase tracking-widest border border-[#7C3AED]/20">Target Role</span>
              </div>
           </motion.div>
         </div>
@@ -210,8 +210,8 @@ export default function StudentDashboard() {
         <div className="lg:col-span-8 space-y-6">
           <div className="flex justify-between items-center niet-header-accent">
             <div className="flex items-center gap-3">
-              <h2 className="text-lg font-bold text-[#0A1628] font-display">Domain Pulse</h2>
-              <span className="flex items-center gap-1.5 px-2 py-0.5 bg-[#E8F8F2] text-[#00A86B] text-[8px] font-black rounded-md uppercase tracking-widest border border-[#00A86B]/20">
+              <h2 className="text-lg font-bold text-[#0A1628] dark:text-slate-100 font-display">Domain Pulse</h2>
+              <span className="flex items-center gap-1.5 px-2 py-0.5 bg-[#E8F8F2] dark:bg-emerald-500/10 text-[#00A86B] text-[8px] font-black rounded-md uppercase tracking-widest border border-[#00A86B]/20">
                 <div className="w-1 h-1 rounded-full bg-[#00A86B] animate-pulse" /> Live Market Intel
               </span>
             </div>
@@ -223,15 +223,15 @@ export default function StudentDashboard() {
               initial={{ y: -10, opacity: 0 }} 
               animate={{ y: 0, opacity: 1 }} 
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-[#FEF0F1] border-l-4 border-[#E8132A] p-5 rounded-r-2xl flex items-center justify-between shadow-sm border border-[#FCCDD0]"
+              className="bg-[#FEF0F1] dark:bg-red-500/10 border-l-4 border-[#E8132A] p-5 rounded-r-2xl flex items-center justify-between shadow-sm border border-[#FCCDD0] dark:border-red-500/20"
             >
               <div className="flex gap-4 items-center">
-                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-[#E8132A] border border-[#FCCDD0] shadow-sm">
+                <div className="w-10 h-10 bg-white dark:bg-slate-800 rounded-xl flex items-center justify-center text-[#E8132A] border border-[#FCCDD0] dark:border-slate-700 shadow-sm">
                   <Bell size={20} className="animate-bounce" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-[#0A1628]">SQL is trending in 47 job postings this week.</p>
-                  <p className="text-[11px] text-[#4A5568] font-medium">
+                  <p className="text-sm font-bold text-[#0A1628] dark:text-slate-100">SQL is trending in 47 job postings this week.</p>
+                  <p className="text-[11px] text-[#4A5568] dark:text-slate-400 font-medium">
                     Not on your roadmap yet. 
                     <button 
                       onClick={() => {
@@ -255,17 +255,17 @@ export default function StudentDashboard() {
 
           <div className="grid md:grid-cols-2 gap-4">
             {newsItems.map((news) => (
-              <div key={news.title} className="niet-card p-5 flex gap-4 group hover:border-[#E8132A] transition-all bg-white">
-                <div className="w-12 h-12 bg-[#F5F6FA] rounded-xl flex items-center justify-center text-[#8B9BB4] flex-shrink-0 group-hover:text-[#E8132A] transition-colors border border-[#E2E8F0]">
+              <div key={news.title} className="niet-card p-5 flex gap-4 group hover:border-[#E8132A] transition-all">
+                <div className="w-12 h-12 bg-[#F5F6FA] dark:bg-slate-800 rounded-xl flex items-center justify-center text-[#8B9BB4] dark:text-slate-500 flex-shrink-0 group-hover:text-[#E8132A] transition-colors border border-[#E2E8F0] dark:border-slate-700">
                    <ExternalLink size={20} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[9px] font-black text-[#8B9BB4] uppercase tracking-widest">{news.source}</span>
+                    <span className="text-[9px] font-black text-[#8B9BB4] dark:text-slate-500 uppercase tracking-widest">{news.source}</span>
                     <span className="px-2 py-0.5 rounded-md text-[8px] font-black uppercase tracking-widest" style={{ backgroundColor: `${news.tagColor}15`, color: news.tagColor, border: `1px solid ${news.tagColor}20` }}>{news.tag}</span>
                   </div>
-                  <h3 className="text-sm font-bold text-[#0A1628] mb-1 group-hover:text-[#E8132A] transition-colors line-clamp-1">{news.title}</h3>
-                  <p className="text-[11px] text-[#4A5568] font-medium line-clamp-1">{news.summary}</p>
+                  <h3 className="text-sm font-bold text-[#0A1628] dark:text-slate-100 mb-1 group-hover:text-[#E8132A] transition-colors line-clamp-1">{news.title}</h3>
+                  <p className="text-[11px] text-[#4A5568] dark:text-slate-400 font-medium line-clamp-1">{news.summary}</p>
                 </div>
               </div>
             ))}
@@ -274,21 +274,21 @@ export default function StudentDashboard() {
 
         {/* Activity Feed */}
         <div className="lg:col-span-4 niet-card p-6 bg-white">
-          <h2 className="text-sm font-black text-[#0A1628] uppercase tracking-widest mb-8 border-b border-[#F5F6FA] pb-3">Activity Feed</h2>
+          <h2 className="text-sm font-black text-[#0A1628] dark:text-slate-100 uppercase tracking-widest mb-8 border-b border-[#F5F6FA] dark:border-slate-800 pb-3">Activity Feed</h2>
           <div className="space-y-6">
             {activityItems.map((item, i) => (
               <div key={i} className="flex gap-4 relative">
                 {i !== activityItems.length - 1 && (
-                  <div className="absolute left-[17px] top-8 bottom-[-24px] w-[1px] border-l border-dashed border-[#E2E8F0]" />
+                  <div className="absolute left-[17px] top-8 bottom-[-24px] w-[1px] border-l border-dashed border-[#E2E8F0] dark:border-slate-800" />
                 )}
-                <div className="w-9 h-9 rounded-xl bg-[#F5F6FA] border border-[#E2E8F0] flex items-center justify-center flex-shrink-0 z-10" style={{ color: item.color }}>
+                <div className="w-9 h-9 rounded-xl bg-[#F5F6FA] dark:bg-slate-800 border border-[#E2E8F0] dark:border-slate-800 flex items-center justify-center flex-shrink-0 z-10" style={{ color: item.color }}>
                   {item.icon}
                 </div>
                 <div className="pt-1">
-                  <p className="text-[12px] text-[#4A5568] font-medium leading-tight">
-                    {item.text} {item.highlight && <strong className="text-[#0A1628] font-black">{item.highlight}</strong>}
+                  <p className="text-[12px] text-[#4A5568] dark:text-slate-300 font-medium leading-tight">
+                    {item.text} {item.highlight && <strong className="text-[#0A1628] dark:text-slate-100 font-black">{item.highlight}</strong>}
                   </p>
-                  <p className="text-[9px] text-[#8B9BB4] mt-1 font-black uppercase tracking-widest">{item.time}</p>
+                  <p className="text-[9px] text-[#8B9BB4] dark:text-slate-500 mt-1 font-black uppercase tracking-widest">{item.time}</p>
                 </div>
               </div>
             ))}
@@ -299,11 +299,11 @@ export default function StudentDashboard() {
       {/* ROW 3: SKILL GAP & MENTORS */}
       <div className="grid lg:grid-cols-12 gap-8">
         {/* Skill Gap Analysis */}
-        <div className="lg:col-span-7 niet-card p-8 bg-white">
+        <div className="lg:col-span-7 niet-card p-8">
           <div className="flex justify-between items-start mb-10 niet-header-accent">
             <div>
-              <h2 className="text-lg font-bold text-[#0A1628] font-display">Gap Identification</h2>
-              <p className="text-[10px] text-[#4A5568] font-bold uppercase tracking-widest mt-1">SDE INTERN • INDUSTRY BENCHMARK</p>
+              <h2 className="text-lg font-bold text-[#0A1628] dark:text-slate-100 font-display">Gap Identification</h2>
+              <p className="text-[10px] text-[#4A5568] dark:text-slate-400 font-bold uppercase tracking-widest mt-1">SDE INTERN • INDUSTRY BENCHMARK</p>
             </div>
             <button onClick={() => navigate('/student/assessment')} className="text-[#E8132A] text-[10px] font-black uppercase tracking-widest hover:underline">Update Skills</button>
           </div>
@@ -312,10 +312,10 @@ export default function StudentDashboard() {
             {skillBars.map((skill, i) => (
               <div key={skill.name} className="relative group cursor-help" title={`Master this → ${skill.impact} to Gap Score`}>
                 <div className="flex justify-between items-center mb-1.5">
-                  <span className="text-[11px] font-black text-[#0A1628] uppercase tracking-wider">{skill.name}</span>
-                  <span className="text-[10px] font-bold text-[#8B9BB4]">{skill.progress}% Mastery</span>
+                   <span className="text-[11px] font-black text-[#0A1628] dark:text-slate-200 uppercase tracking-wider">{skill.name}</span>
+                   <span className="text-[10px] font-bold text-[#8B9BB4] dark:text-slate-500">{skill.progress}% Mastery</span>
                 </div>
-                <div className="h-1.5 bg-[#F5F6FA] rounded-full overflow-hidden mb-1">
+                <div className="h-1.5 bg-[#F5F6FA] dark:bg-slate-800 rounded-full overflow-hidden mb-1">
                   <motion.div initial={{ width: 0 }} animate={{ width: `${skill.progress}%` }} transition={{ duration: 1, delay: i * 0.1 }} className="h-full rounded-full" style={{ backgroundColor: skill.color }} />
                 </div>
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-8 right-0 bg-[#E8132A] text-white text-[9px] font-black px-2 py-1 rounded shadow-xl">
@@ -327,13 +327,13 @@ export default function StudentDashboard() {
         </div>
 
         {/* Matched Mentors */}
-        <div className="lg:col-span-5 niet-card p-8 bg-white flex flex-col">
-          <h2 className="text-lg font-bold text-[#0A1628] mb-8 font-display">Matched Experts</h2>
+        <div className="lg:col-span-5 niet-card p-8 flex flex-col">
+          <h2 className="text-lg font-bold text-[#0A1628] dark:text-slate-100 mb-8 font-display">Matched Experts</h2>
           <div className="flex-1 space-y-4 overflow-y-auto max-h-[420px] pr-2">
             {mentors.map((mentor) => (
-              <div key={mentor.name} className="p-4 bg-[#F5F6FA] border border-[#E2E8F0] rounded-xl hover:border-[#E8132A] transition-all group">
+              <div key={mentor.name} className="p-4 bg-[#F5F6FA] dark:bg-slate-900 border border-[#E2E8F0] dark:border-slate-800 rounded-xl hover:border-[#E8132A] transition-all group">
                 <div className="flex gap-4">
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-black text-xs flex-shrink-0 border overflow-hidden ${mentor.type === 'faculty' ? 'bg-[#FEF0F1] text-[#E8132A] border-[#FCCDD0]' : 'bg-[#FFF9E6] text-[#F5A623] border-[#FDE68A]'}`}>
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-black text-xs flex-shrink-0 border overflow-hidden ${mentor.type === 'faculty' ? 'bg-[#FEF0F1] dark:bg-red-500/10 text-[#E8132A] border-[#FCCDD0] dark:border-red-500/20' : 'bg-[#FFF9E6] dark:bg-amber-500/10 text-[#F5A623] border-[#FDE68A] dark:border-amber-500/20'}`}>
                     {mentor.photo_url ? (
                       <img src={mentor.photo_url} alt={mentor.name} className="w-full h-full object-cover" />
                     ) : (
@@ -342,13 +342,13 @@ export default function StudentDashboard() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-start mb-1">
-                      <h3 className="text-sm font-bold text-[#0A1628] truncate">{mentor.name}</h3>
+                      <h3 className="text-sm font-bold text-[#0A1628] dark:text-slate-100 truncate">{mentor.name}</h3>
                       <button onClick={() => navigate('/student/mentor-match', { state: { mentor } })} className="text-[9px] font-black text-[#E8132A] uppercase tracking-widest hover:underline">Connect →</button>
                     </div>
-                    <p className="text-[9px] text-[#4A5568] font-bold uppercase tracking-wider mb-2">{mentor.role}</p>
-                    <div className="flex items-center justify-between text-[10px] font-bold text-[#8B9BB4]">
+                    <p className="text-[9px] text-[#4A5568] dark:text-slate-400 font-bold uppercase tracking-wider mb-2">{mentor.role}</p>
+                    <div className="flex items-center justify-between text-[10px] font-bold text-[#8B9BB4] dark:text-slate-500">
                       <span className="flex items-center gap-1"><MapPin size={12} className="text-[#E8132A]" /> {mentor.location}</span>
-                      <span className="flex items-center gap-1 text-[#0A1628] bg-white px-2 py-0.5 rounded border border-[#E2E8F0]"><Clock size={12} /> {mentor.available}</span>
+                      <span className="flex items-center gap-1 text-[#0A1628] dark:text-slate-200 bg-white dark:bg-slate-800 px-2 py-0.5 rounded border border-[#E2E8F0] dark:border-slate-700"><Clock size={12} /> {mentor.available}</span>
                     </div>
                   </div>
                 </div>

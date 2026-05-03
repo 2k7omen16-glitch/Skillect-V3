@@ -22,12 +22,12 @@ export default function Hero() {
             <Sparkles size={14} className="animate-pulse" /> AI-Powered Career Platform
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-display font-black text-[#1e293b] leading-[0.95] mb-8 tracking-[-0.04em]">
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-display font-black text-[#1e293b] dark:text-slate-50 leading-[0.95] mb-8 tracking-[-0.04em]">
             Take charge of<br />your <span className="text-[#E31E24] relative">passion<span className="absolute -bottom-1 left-0 w-full h-4 bg-[#E31E24]/10 -z-10 -rotate-1 rounded-full" /></span>
           </h1>
           
-          <p className="text-gray-500 text-lg sm:text-xl mb-12 max-w-xl leading-relaxed font-medium">
-            Map your skills against real industry requirements, unlock <span className="text-[#1e293b] font-bold">personalized AI learning roadmaps</span>, and connect with 200+ NIET experts in one tap.
+          <p className="text-gray-500 dark:text-slate-400 text-lg sm:text-xl mb-12 max-w-xl leading-relaxed font-medium">
+            Map your skills against real industry requirements, unlock <span className="text-[#1e293b] dark:text-slate-200 font-bold">personalized AI learning roadmaps</span>, and connect with 200+ NIET experts in one tap.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5">
@@ -39,7 +39,7 @@ export default function Hero() {
             </button>
             <button
               onClick={() => navigate('/login')}
-              className="bg-white border-2 border-gray-100 hover:border-[#1e293b] text-[#1e293b] px-10 py-6 rounded-[2rem] text-sm font-black uppercase tracking-widest transition-all active:scale-95 shadow-sm hover:shadow-xl"
+              className="bg-white dark:bg-slate-900 border-2 border-gray-100 dark:border-slate-800 hover:border-[#1e293b] dark:hover:border-slate-700 text-[#1e293b] dark:text-slate-100 px-10 py-6 rounded-[2rem] text-sm font-black uppercase tracking-widest transition-all active:scale-95 shadow-sm hover:shadow-xl"
             >
               Login
             </button>
@@ -60,7 +60,7 @@ export default function Hero() {
               ))}
             </div>
             <div className="space-y-1">
-              <div className="text-base font-black text-[#1e293b] font-display">500+ Active Students</div>
+              <div className="text-base font-black text-[#1e293b] dark:text-slate-100 font-display">500+ Active Students</div>
               <div className="flex items-center gap-2">
                 <div className="flex gap-0.5">
                   {[1, 2, 3, 4, 5].map(i => <div key={i} className="w-1.5 h-1.5 rounded-full bg-emerald-400" />)}
@@ -99,7 +99,7 @@ export default function Hero() {
         className="flex flex-col items-center mt-20"
       >
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-[#1e293b] leading-tight tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-[#1e293b] dark:text-slate-50 leading-tight tracking-tight">
             Explore NIET's <span className="text-[#E31E24]">3 Landmark</span> Buildings
           </h2>
           <div className="mt-4 flex items-center justify-center gap-2">
@@ -141,13 +141,13 @@ function BuildingCard({ icon, title, desc, delay }: { icon: React.ReactNode; tit
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ delay, duration: 0.5 }}
-      className="bg-white p-6 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#E31E24]/20 transition-all group cursor-default"
+      className="bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-[#E31E24]/20 transition-all group cursor-default p-6 rounded-[2.5rem]"
     >
-      <div className="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+      <div className="w-12 h-12 bg-gray-50 dark:bg-slate-800 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
         {icon}
       </div>
-      <h3 className="text-[#1e293b] font-display font-black text-lg mb-1">{title}</h3>
-      <p className="text-gray-400 text-xs font-medium leading-relaxed">{desc}</p>
+      <h3 className="text-[#1e293b] dark:text-slate-100 font-display font-black text-lg mb-1">{title}</h3>
+      <p className="text-gray-400 dark:text-slate-500 text-xs font-medium leading-relaxed">{desc}</p>
     </motion.div>
   )
 }

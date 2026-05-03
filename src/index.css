@@ -6,13 +6,16 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    @apply transition-colors duration-300;
+  }
   :root {
     --background: 0 0% 100%;
     --foreground: 217 60% 10%;
   }
 
   body {
-    @apply bg-[#FFFFFF] text-[#0A1628] antialiased selection:bg-[#E8132A]/20 selection:text-[#E8132A];
+    @apply bg-[#FFFFFF] dark:bg-[#020617] text-[#0A1628] dark:text-[#F8FAFC] antialiased selection:bg-[#E8132A]/20 selection:text-[#E8132A];
     font-family: 'Satoshi', sans-serif;
   }
 
@@ -38,10 +41,10 @@
   .border-niet-gray { border-color: #E2E8F0; }
 
   .niet-card {
-    @apply bg-white border border-[#E2E8F0] rounded-2xl p-6 transition-all duration-300;
+    @apply bg-white dark:bg-slate-900 border border-[#E2E8F0] dark:border-slate-800 rounded-2xl p-6 transition-all duration-300;
   }
   .niet-card:hover {
-    @apply border-[#CBD5E0] shadow-xl shadow-slate-900/5 -translate-y-0.5;
+    @apply border-[#CBD5E0] dark:border-slate-700 shadow-xl shadow-slate-900/5 dark:shadow-slate-900/40 -translate-y-0.5;
   }
 
   .niet-btn-primary {
@@ -93,9 +96,15 @@
 ::-webkit-scrollbar-track {
   background: #F5F6FA;
 }
+.dark ::-webkit-scrollbar-track {
+  background: #0F172A;
+}
 ::-webkit-scrollbar-thumb {
   background: #CBD5E0;
   border-radius: 10px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #8B9BB4;
