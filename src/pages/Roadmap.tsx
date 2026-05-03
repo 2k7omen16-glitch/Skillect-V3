@@ -1,5 +1,5 @@
-import { ArrowLeft, ExternalLink, PlayCircle, BookOpen, X, CheckCircle, ZoomIn, ZoomOut, LayoutGrid, Check, Trophy, GraduationCap, Building2, Users, Book, School, Map, ChevronRight, Zap, Award } from 'lucide-react'
-import { useState, useMemo, useRef, useEffect } from 'react'
+import { ArrowLeft, ExternalLink, PlayCircle, BookOpen, X, CheckCircle, Check, Trophy, GraduationCap, Users, Book, School, Map, ChevronRight, Zap, Award } from 'lucide-react'
+import { useState, useMemo, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { roadmapPaths } from '../data/roadmapData'
 import { supabase } from '../services/supabase'

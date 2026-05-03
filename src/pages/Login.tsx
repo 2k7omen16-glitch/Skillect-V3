@@ -9,7 +9,7 @@ import Logo from '../components/Logo'
 export default function Login() {
   const navigate = useNavigate()
   const { setDemoUser } = useAuth()
-  const [role, setRole] = useState<'student' | 'professor'>('student')
+  const [role, setRole] = useState<'student' | 'professor' | 'admin' | 'alumni'>('student')
   const [isSignup, setIsSignup] = useState(false)
   const [showPass, setShowPass] = useState(false)
   const [email, setEmail] = useState('')
@@ -55,7 +55,7 @@ export default function Login() {
       setDemoUser({
         email: email || 'demo@niet.co.in',
         name: name || email?.split('@')[0] || 'Demo User',
-        role: role as any,
+        role: role,
       })
       
       const paths = {
@@ -161,7 +161,7 @@ export default function Login() {
                 <Users size={14} /> Faculty
               </button>
               <button
-                onClick={() => setRole('admin' as any)}
+                onClick={() => setRole('admin')}
                 className={`flex items-center justify-center gap-2 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${
                   role === 'admin'
                     ? 'bg-white text-purple-600 shadow-md'
@@ -171,7 +171,7 @@ export default function Login() {
                 <ShieldCheck size={14} /> Admin
               </button>
               <button
-                onClick={() => setRole('alumni' as any)}
+                onClick={() => setRole('alumni')}
                 className={`flex items-center justify-center gap-2 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${
                   role === 'alumni'
                     ? 'bg-white text-amber-500 shadow-md'

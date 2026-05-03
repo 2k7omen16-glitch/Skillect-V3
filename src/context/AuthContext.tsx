@@ -5,7 +5,7 @@ import type { User } from '@supabase/supabase-js';
 type UserData = {
   name: string;
   email: string;
-  role: 'student' | 'professor' | 'admin';
+  role: 'student' | 'professor' | 'admin' | 'alumni';
   branch?: string;
   year?: string;
   goal?: string;

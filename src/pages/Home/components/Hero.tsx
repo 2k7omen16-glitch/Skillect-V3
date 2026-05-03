@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Sparkles, Zap, Box, FlaskConical, Lightbulb } from 'lucide-react'
+import { ArrowRight, Sparkles, Box, FlaskConical, Lightbulb } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import CampusModelViewer from './CampusModelViewer'
 

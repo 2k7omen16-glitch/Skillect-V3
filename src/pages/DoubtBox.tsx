@@ -5,6 +5,20 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { generateDoubtAnswer } from '../services/ai'
 import { useAuth } from '../context/AuthContext'
 
+interface DoubtItem {
+  id: number;
+  question: string;
+  domain: string;
+  professor: string;
+  photo_url?: string;
+  building: number;
+  cabin: string;
+  answer: string;
+  upvotes: number;
+  answeredAt: string;
+  addons: any[];
+}
+
 const doubtsData = [
   {
     id: 1,
@@ -53,8 +67,8 @@ export default function DoubtBox() {
   const [search, setSearch] = useState((location.state as any)?.searchTerm || '')
   const [newQuestion, setNewQuestion] = useState('')
   const [newDomain, setNewDomain] = useState('Data Analytics')
-  const [doubts, setDoubts] = useState(doubtsData)
-  const [selectedThread, setSelectedThread] = useState<any>(null)
+  const [doubts, setDoubts] = useState<DoubtItem[]>(doubtsData)
+  const [selectedThread, setSelectedThread] = useState<DoubtItem | null>(null)
   const [comment, setComment] = useState('')
   const [submitting, setSubmitting] = useState(false)
 
@@ -278,8 +292,8 @@ export default function DoubtBox() {
                         <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-bold text-xs shadow-md border overflow-hidden ${
                           doubt.professor.includes('AI') ? 'bg-[#E8132A] border-none' : 'bg-white text-[#0A1628] border-[#E2E8F0]'
                         }`}>
-                          {(doubt as any).photo_url ? (
-                             <img src={(doubt as any).photo_url} alt={doubt.professor} className="w-full h-full object-cover" />
+                          {doubt.photo_url ? (
+                             <img src={doubt.photo_url} alt={doubt.professor} className="w-full h-full object-cover" />
                           ) : (
                              doubt.professor.includes('AI') ? 'AI' : doubt.professor.split(' ').pop()?.[0]
                           )}

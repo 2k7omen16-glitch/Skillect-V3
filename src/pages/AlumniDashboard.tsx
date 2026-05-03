@@ -3,12 +3,11 @@ import { motion } from 'framer-motion'
 import { 
   Users, Briefcase, MessageSquare, 
   Bell, GraduationCap, Building2, 
-  CheckCircle, Clock, ExternalLink, 
-  Search, Sparkles, LogOut, TrendingUp, Award, Zap
+  CheckCircle, ExternalLink, 
+  Sparkles, LogOut, TrendingUp, Award, Zap
 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import { supabase } from '../services/supabase'
 
 // --- FAKE DATA FOR PRESENTATION ---
 const MOCK_ANNOUNCEMENTS = [
@@ -33,15 +32,14 @@ const MOCK_JOBS = [
 export default function AlumniDashboard() {
   const { userData, logoutDemo } = useAuth()
   const navigate = useNavigate()
-  const [announcements, setAnnouncements] = useState<any[]>(MOCK_ANNOUNCEMENTS)
-  const [loading, setLoading] = useState(false)
+  const [announcements] = useState<any[]>(MOCK_ANNOUNCEMENTS)
 
   useEffect(() => {
     // In real app, fetch from Supabase
     // fetchData()
   }, [])
 
-  const isVerified = userData?.profile_complete || true
+
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
