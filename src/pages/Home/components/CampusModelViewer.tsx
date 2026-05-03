@@ -54,8 +54,11 @@ export default function CampusModelViewer() {
           shadow-intensity="1"
           exposure="1.2"
           environment-image="neutral"
-          camera-orbit="auto auto auto"
-          camera-target="auto auto auto"
+          camera-orbit="45deg 55deg 25%"
+          field-of-view="25deg"
+          min-field-of-view="10deg"
+          max-field-of-view="auto"
+          interpolation-decay="200"
           bounds="tight"
           style={{
             width: "100%",
