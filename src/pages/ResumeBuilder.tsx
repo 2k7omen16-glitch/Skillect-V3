@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { Download, FileText, CheckCircle, Loader2, Sparkles, User, Mail, Phone, RefreshCw, Zap, Target } from 'lucide-react'
 import { toast } from 'sonner'
 import { motion, AnimatePresence } from 'framer-motion'

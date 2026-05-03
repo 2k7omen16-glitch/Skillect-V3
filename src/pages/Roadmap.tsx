@@ -70,9 +70,6 @@ export default function Roadmap() {
       const p2 = getPositionForIndex(i + 1)
       
       // Calculate control points for smooth winding
-      const midY = (p1.y + p2.y) / 2
-      const cp1 = { x: p1.x, y: midY }
-      const cp2 = { x: p2.x, y: midY }
       
       if (p1.y === p2.y) {
         // Horizontal connection (same row)
@@ -86,7 +83,7 @@ export default function Roadmap() {
     return d
   }
 
-  const getIconForType = (type: string, index: number) => {
+  const getIconForType = (_type: string, index: number) => {
     const icons = [School, GraduationCap, Users, Book, Award, Trophy, Map]
     const Icon = icons[index % icons.length]
     return <Icon size={24} />
